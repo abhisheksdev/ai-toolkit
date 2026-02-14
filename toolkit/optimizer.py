@@ -56,7 +56,7 @@ def get_optimizer(
     elif (lower_type.startswith("prodigy_adv") or
           lower_type.replace("-", "_") == "prodigy_adv"):
         try:
-            from adv_optm import Prodigy_Adv
+            from adv_optm import Prodigy_adv
         except ImportError:
             raise ImportError(
                 "Prodigy Adv requires: pip install adv-optm"
@@ -66,7 +66,7 @@ def get_optimizer(
         if use_lr < 0.1:
             use_lr = 1.0
         print(f"Using lr {use_lr}")
-        optimizer = Prodigy_Adv(params, lr=use_lr, eps=1e-8, **optimizer_params)
+        optimizer = Prodigy_adv(params, lr=use_lr, eps=1e-8, **optimizer_params)
     elif lower_type.startswith("prodigy"):
         from prodigyopt import Prodigy
 
